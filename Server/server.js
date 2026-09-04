@@ -8,10 +8,16 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 5000;
 
+
 const authRoutes = require("./routes/authRoutes");
+const complaintRoutes = require("./routes/complaintRoute");
 
 app.use(express.json());
+
 app.use("/api/auth", authRoutes);
+app.use("/api/complaints", complaintRoutes);
+
+
 
 app.get('/',(req,res)=>{
     res.send("CivicFix API is running");
